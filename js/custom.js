@@ -1,4 +1,6 @@
 // to get current year
+
+AOS.init();
 function getYear() {
     var currentDate = new Date();
     var currentYear = currentDate.getFullYear();
@@ -43,6 +45,20 @@ function myMap() {
     var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
 }
 
+/*global $*/
+$(document).ready(function () {
+    "use strict";
+
+    var span = $('.letter'),
+        tlSmell = new TimelineMax({ repeat: -1 });
+
+    tlSmell
+        .staggerFromTo($('svg .smell'), 3, { y: 50, autoAlpha: 0.5 }, { y: -20, autoAlpha: 1 }, 1);
+
+    // tween max pol body 
+    TweenMax.fromTo($('svg #body'), 3, { x: -1, repeat: -1, yoyo: true }, { x: 1, repeat: -1, yoyo: true });
+});
+
 // client section owl carousel
 $(".client_owl-carousel").owlCarousel({
     loop: true,
@@ -52,10 +68,7 @@ $(".client_owl-carousel").owlCarousel({
     navText: [],
     autoplay: true,
     autoplayHoverPause: true,
-    navText: [
-        '<i class="fa fa-angle-left" aria-hidden="true"></i>',
-        '<i class="fa fa-angle-right" aria-hidden="true"></i>'
-    ],
+  
     responsive: {
         0: {
             items: 1
