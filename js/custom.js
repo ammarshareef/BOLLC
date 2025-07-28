@@ -1,5 +1,21 @@
 // to get current year
 
+  window.addEventListener('load', function () {
+    const smoke = document.querySelector('.smoke');
+    const img = document.getElementById('biryani-img');
+
+    if (img.complete) {
+      smoke.style.opacity = 1;
+      smoke.style.animationPlayState = 'running';
+    } else {
+      img.onload = () => {
+        smoke.style.opacity = 1;
+        smoke.style.animationPlayState = 'running';
+      };
+    }
+  });
+
+
 AOS.init();
 function getYear() {
     var currentDate = new Date();
@@ -8,6 +24,7 @@ function getYear() {
 }
 
 getYear();
+
 
 
 // isotope js
